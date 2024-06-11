@@ -1,4 +1,4 @@
-import * as SQLite from 'expo-sqlite';
+import * as SQLite from 'expo-sqlite/legacy';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { DataSource } from 'typeorm';
 import { TaskRepository } from './repositories/TaskRepository';

@@ -13,8 +13,8 @@ const App: React.FC = () => {
     <DatabaseConnectionProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="TaskList">
-          <Stack.Screen name="TaskList" component={TaskListScreen} />
-          <Stack.Screen name="AddTask" component={AddTaskScreen} />
+          <Stack.Screen name="TaskList" component={TaskListScreen} options={{title:'Lista de Tarefas'}} />
+          <Stack.Screen name="AddTask" component={AddTaskScreen} options={{title:'Adicionar Tarefas'}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </DatabaseConnectionProvider>

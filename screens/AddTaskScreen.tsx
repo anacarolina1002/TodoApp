@@ -10,28 +10,39 @@ export const AddTaskScreen: React.FC = () => {
   const navigation = useNavigation();
 
   const addTask = async () => {
-    console.log("Adicionando tarefa...");
     if (connection) {
       const taskRepository = connection.getRepository(Task);
       const newTask = taskRepository.create({ title, completed: false });
       await taskRepository.save(newTask);
-      console.log("Tarefa adicionada:", newTask);
       navigation.goBack();
     } else {
-      console.error("Erro: Conexão com o banco de dados não encontrada.");
     }
   };
 
-  console.log("Conexão com o banco de dados:", connection);
-
   return (
     <View>
-      <TextInput
-        placeholder="Task Title"
-        value={title}
-        onChangeText={setTitle}
-      />
-      <Button title="Add Task" onPress={addTask} />
+      <View style={styles.textInput}>
+        <TextInput
+          placeholder="Digite aqui..."
+          value={title}
+          onChangeText={setTitle}
+          style={{ fontSize: 18 }}
+        />
+      </View>
+        <Button title="Adicionar tarefa" onPress={addTask} />
+      
     </View>
   );
 };
+const styles = ({
+  textInput: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 15,
+    borderWidth: 0.5,
+    padding: 5,
+    borderRadius: 7,
+    borderColor: 'gray'
+  }
+
+});
